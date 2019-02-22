@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+
+html {
+  font-size: 14px;
+  background: #522a74;
+  background:
+      linear-gradient(217deg, rgba(136, 10, 138, 0.7), rgba(82, 42, 116, 0.4) 70.71%),
+      linear-gradient(127deg, rgba(42, 116, 93, 0.8), rgba(9, 93, 82, 0.4) 70.71%),
+      linear-gradient(336deg, rgba(0,0,255,.8), rgba(23, 9, 93, 0.4) 70.71%);
+  min-height: 100vh;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+  
+}
+
+.page-title {
+  color: white;
+  text-align: center;
+}
+
+h1 {
+  margin: 0;
+  font-size: 90px;
+}
+
+p {
+  font-size: 16px;
+  margin: 0 0 50px 0;
+}
+
+.keys {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  width: 50rem;
+  margin: auto;
+}
+
+.key {
+  border: .5rem solid white;
+  border-radius: 2rem;
+  margin: 1rem;
+  font-size: 1.5rem;
+  padding: 1rem 1rem;
+  transition: all .1s ease;
+  width: 10rem;
+  text-align: center;
+  color: white;
+  background: transparent;
+}
+
+.playing {
+  transform: scale(1.2);
+  border-color: rgba(45, 251, 186, 1);
+  background: rgba(145, 253, 219, 0.4);
+  box-shadow: 0 0 2rem rgba(145, 253, 219, 1);
+}
+
+kbd {
+  display: block;
+  font-size: 6rem;
+}
+
+.sound {
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: .2rem;
+  color: #2dfbba;
+}
