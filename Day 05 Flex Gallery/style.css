@@ -91,9 +91,3 @@ body {
   transform: scale(1.5);
   transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
 }
-
-@media only screen and (max-width: 600px) {
-  .panel p {
-    font-size: 1em;
-  }
-}
