@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Dev Tools</title>
+  </head>
+  <body>
+    <!-- inspect p tag, find in DOM, right click and go to Break on...,
+         click attribute modifications, and fire the event to see which
+         line is causing that attribute -->
+    <p onclick="makeGreen()">CLICK ME</p>
+
+    <script>
+      const dogs = [{ name: "Snickers", age: 2 }, { name: "Hugo", age: 8 }];
+
+      function makeGreen() {
+        const p = document.querySelector("p");
+        p.style.color = "#61E786";
+        p.style.fontSize = "100px";
+        p.style.fontFamily = "Luckiest Guy";
+        p.style.letterSpacing = "20px";
+      }
+
+      // Regular
+      console.log("hello");
+
+      // Interpolate
+      console.log("Hello I am a %s string!", "new");
+
+      // Styled
+      console.log("%c I am here", "font-size:50px; background: red;");
+
+      // Warning
+      console.warn("OOPS");
+
+      // Error
+      console.error("ERROR");
+
+      // Infor
+      console.info("Here is some information");
+
+      // Testing
+      const p = document.querySelector("p");
+      console.assert(p.classList.contains("ouch"), "That's wrong");
+
+      // Clearing
+      //console.clear();
+
+      // Viewing DOM Elements
+      console.log(p);
+      console.dir(p);
+
+      console.clear();
+
+      // Grouping together
+      dogs.forEach(dog => {
+        // console.group(`${dog.name}`);
+        console.groupCollapsed(`${dog.name}`);
+        console.log(`This is ${dog.name}`);
+        console.log(`${dog.name} is ${dog.age} years old`);
+        console.groupEnd(`${dog.name}`);
+      });
+
+      // counting
+      console.count("Pickles");
+      console.count("Chips");
+      console.count("Pickles");
+      console.count("Pickles");
+      console.count("Chips");
+      console.count("Pickles");
+      console.count("Pickles");
+
+      // timing
+      console.time("fetching data");
+      // fetch("https://api.github.com/users/tempestparr")
+      //   .then(data => data.json())
+      //   .then(data => {
+      //     console.timeEnd("fetching data");
+      //     console.log(data);
+      //   });
+
+      // table
+      console.table(dogs);
+    </script>
+  </body>
+</html>

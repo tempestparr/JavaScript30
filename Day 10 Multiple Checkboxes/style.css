@@ -1,0 +1,77 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald|Roboto");
+
+html {
+  background: #98b193;
+  font-size: 18px;
+  font-family: "Oswald", sans-serif;
+}
+
+.inbox {
+  background: white;
+  margin: 50px auto;
+  max-width: 500px;
+  border-radius: 5px;
+  box-shadow: 10px 10px 12px rgba(0, 0, 0, 0.1);
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.item:last-child {
+  border-bottom: 0;
+}
+
+input:checked + p {
+  background: #f9f9f9;
+  text-decoration: line-through;
+  color: #b6b6b6;
+}
+
+input[type="checkbox"] {
+  margin: 20px;
+  cursor: pointer;
+}
+
+p {
+  margin: 0;
+  padding: 20px;
+  transition: background 0.2s;
+  flex: 1;
+  border-left: 1px solid #c3d3bf;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    width: 100%;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #92aa8e;
+    border-radius: 5px;
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.1);
+    color: white;
+    background: #98b193;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #65885f;
+}
+
+button:focus {
+    outline: none;
+    outline-offset: -4px;
+}
+
+.btn:active {
+    transform: scale(0.8);
+}
