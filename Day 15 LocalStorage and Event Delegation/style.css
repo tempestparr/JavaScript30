@@ -1,0 +1,111 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans");
+
+html,
+body {
+  margin: 50px auto;
+  background: #8dc1b2;
+  color: #494949;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Open Sans", Helvetica, sans-serif;
+  font-size: 16px;
+}
+
+.wrapper {
+  min-width: 350px;
+  padding: 40px;
+  background: #fffbf0;
+  box-shadow: 0 0 0 10px rgba(0, 0, 0, 0.02);
+  border-radius: 5px;
+}
+
+h1 {
+  margin-top: 0;
+  text-transform: uppercase;
+}
+
+.todos {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-align: left;
+}
+
+.todos li {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  margin: 5px auto;
+  font-weight: 100;
+  display: flex;
+}
+
+.todos input {
+  display: none;
+}
+
+.todos input + label:before {
+  content: "⬜️";
+  margin-right: 10px;
+}
+
+.todos input:checked + label:before {
+  content: "✔️";
+  margin-right: 5px;
+}
+
+.add-tasks {
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+form {
+  display: flex;
+  justify-content: center;
+}
+
+.add-tasks input {
+  width: 100%;
+  margin: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  padding: 10px;
+  outline: none;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.add-tasks input[type="submit"] {
+  width: auto;
+  background: #808eb1;
+  color: white;
+}
+
+.add-tasks input[type="submit"]:hover {
+  background: #70799e;
+  transition: 0.5s ease-in;
+}
+
+.buttons {
+  margin-top: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.buttons button {
+  width: 100%;
+  margin: 0 5px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 5px;
+  background: #b180a0;
+  color: white;
+  font-family: "Open Sans", Helvetica, sans-serif;
+}
+
+.buttons button:hover {
+  background: #997088;
+  transition: 0.5s ease-in;
+}

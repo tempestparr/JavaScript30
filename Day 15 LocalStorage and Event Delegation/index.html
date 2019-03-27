@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="style.css">
+    <title>LocalStorage and Event Delegation</title>
+</head>
+<body>
+    <div class="wrapper">
+        <h1>To Do List</h1>
+        <ul class="todos">
+            <li>Loading list...</li>
+        </ul>
+        <form class="add-tasks">
+            <input type="text" name="item" placeholder="Item Name" required>
+            <input type="submit" name="submit" value="Add Item">
+        </form>
+
+        <div class="buttons">
+            <button id="checkAll">Check All</button>
+            <button id="uncheckAll">Uncheck All</button>
+            <button id="deleteTasks">Delete All</button>
+        </div>
+    </div>
+    
+
+    <script>
+        const addtasks = document.querySelector('.add-tasks');
+        const todoList = document.querySelector('.todos');
+        const tasks = JSON.parse(localStorage.getItem('tasks')) || []; // get list from localStorage if exists
+        const deleteTasks = document.querySelector('#deleteTasks');
+        const checkTasks = document.querySelector('#checkAll');
+        const uncheckTasks = document.querySelector('#uncheckAll');
+
+        function addItem(e) {
+            e.preventDefault(); // stop the page reloading
+            const text = (this.querySelector('[name=item]')).value; // 'this' is the form tag
+            const item = {
+                text,
+                done: false
+            };
+            tasks.push(item);
+            populateList(tasks, todoList);
+            localStorage.setItem('tasks', JSON.stringify(tasks)); // add item to localStorage
+            this.reset(); // clears the input box
+
+        }
+
+        function populateList(todos = [], taskList) {
+            // loop over every item in our array
+            // and map our objects as a string
+            taskList.innerHTML = todos.map((task, i) => {
+                // create a list item
+                return `
+                    <li>
+                        <input type="checkbox" data-index=${i} id="item${i}" ${task.done ? 'checked' : ''} />
+                        <label for="item${i}">${task.text}</label>
+                    </li>
+                `;
+            }).join(''); // join to get a single string
+        }
+
+        function toggleDone(e) {
+            if (!e.target.matches('input')) return; // skip this target unless it is an input
+            const element = e.target;
+            const index = element.dataset.index;
+            tasks[index].done = !tasks[index].done;
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            populateList(tasks, todoList);
+        }
+
+        function removeTasks(e) {
+            const lis = document.querySelectorAll('li');
+            lis.forEach(li => li.parentNode.removeChild(li));
+            tasks.length = 0;
+            localStorage.clear();        
+        }
+
+        function toggleCheckAll(e) {
+            if (e.target.matches('#checkAll')) {
+                tasks.forEach(task => task.done = true);
+            } else {
+                tasks.forEach(task => task.done = false);
+            }
+            localStorage.setItem('tasks', JSON.stringify(tasks));
+            populateList(tasks, todoList);
+        }
+
+        addtasks.addEventListener('submit', addItem);
+        todoList.addEventListener('click', toggleDone);
+        deleteTasks.addEventListener('click', removeTasks);
+        checkTasks.addEventListener('click', toggleCheckAll);
+        uncheckTasks.addEventListener('click', toggleCheckAll);
+
+        populateList(tasks, todoList);
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <title>Key Sequence Detection</title>
+</head>
+<body>
+    <h1>Type in the "secret" code. (&#128054;)</h1>
+    <div id="container"></div>
+
+    <script>
+        const keysPressed = [];
+        const secretCode = 'dog';
+        const container = document.querySelector('#container');
+
+        window.addEventListener('keyup', (e) => {
+            keysPressed.push(e.key);
+            keysPressed.splice(-secretCode.length - 1, keysPressed.length - secretCode.length);
+            if (keysPressed.join('').includes(secretCode)) {
+                container.style.backgroundImage = "url('https://source.unsplash.com/CdVG9f96kyg/1500x1500')";
+                container.style.backgroundRepeat = "no-repeat";
+                container.style.backgroundPosition = "center top";
+                container.style.backgroundSize = "contain";
+            }
+        });
+    </script>
+    
+</body>
+</html>
