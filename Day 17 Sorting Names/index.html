@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Sorting Names</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <ul id="movies"></ul>
+    </div>
+
+    <script>
+      const movies = [
+        "The Little Mermaid",
+        "The Lion King",
+        "Mulan",
+        "Aladdin",
+        "Snow White and the Seven Dwarfs",
+        "Dumbo",
+        "Hercules",
+        "Cinderella",
+        "The Aristocats",
+        "Beauty and the Beast",
+        "Lilo & Stitch",
+        "The Princess and the Frog",
+        "Pocahontas",
+        "The Hunchback of Notre Dame",
+        "The Emperor's New Groove",
+        "The Jungle Book",
+        "A Bug's Life",
+        "A Goofy Movie",
+        "Alice in Wonderland",
+        "The Fox and the Hound",
+        "Tarzan",
+        "One Hundred and One Dalmations"
+      ];
+
+      // remove all beginning articles from the titles
+      function strip(movieName) {
+        return movieName.replace(/^(a |the |an )/i, "").trim();
+      }
+
+      // sort the list
+      const sortedMovies = movies.sort((a, b) =>
+        strip(a) > strip(b) ? 1 : -1
+      );
+
+      // add the sorted list to the DOM
+      document.querySelector("#movies").innerHTML = sortedMovies
+        .map(movie => `<li>${movie}</li>`)
+        .join("");
+    </script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css?family=Roboto");
+
+      body {
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        background: linear-gradient(rgb(114, 146, 253), rgb(176, 106, 179));
+        display: flex;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      #wrapper {
+          margin: 40px auto;
+          min-width: 400px;
+      }
+
+      #movies {
+        font-size: 20px;
+        color: rgb(36, 36, 36);
+        background: rgba(255, 255, 255, 0.5);
+        box-shadow: 0 0 0 20px rgba(0, 0, 0, 0.02);
+        border-radius: 5px;
+      }
+
+      #movies li {
+        padding: 10px;
+        list-style-type: circle;
+      }
+
+      #movies li:last-child {
+        border-bottom: 0;
+      }
+
+      a {
+        color: #ffc600;
+        text-decoration: none;
+      }
+    </style>
+  </body>
+</html>

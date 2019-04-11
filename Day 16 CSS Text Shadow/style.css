@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:900');
+
+html {
+    background: rgb(241, 255, 159);
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+h1 {
+    text-shadow: 10px 10px 0 rgba(0, 0, 0, 0.2);
+    font-size: 200px;
+    letter-spacing: 20px;
+  }

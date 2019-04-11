@@ -79,12 +79,12 @@ form {
 
 .add-tasks input[type="submit"] {
   width: auto;
-  background: #808eb1;
+  background: #b180a0;
   color: white;
 }
 
 .add-tasks input[type="submit"]:hover {
-  background: #70799e;
+  background: #997088;
   transition: 0.5s ease-in;
 }
 
@@ -100,12 +100,12 @@ form {
   padding: 10px;
   border: 1px solid rgba(0, 0, 0, 0.05);
   border-radius: 5px;
-  background: #b180a0;
+  background: #808eb1;
   color: white;
   font-family: "Open Sans", Helvetica, sans-serif;
 }
 
 .buttons button:hover {
-  background: #997088;
+  background: #70799e;
   transition: 0.5s ease-in;
 }

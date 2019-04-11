@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Get User Media Code Along!</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="photobooth">
+    <div class="controls">
+      <button class="btn" onClick="takePhoto()">Take Photo</button>
+      <button class="btn" onClick="addFilter('red')">Red Filter</button>
+      <button class="btn" onClick="addFilter('sunny')">Sunny Filter</button>      
+      <button class="btn" onClick="addFilter('purple')">Purple Filter</button>
+      <button class="btn" onClick="addFilter('rgb')">RGB Split</button>
+      <button class="btn" onClick="addFilter('none')">Remove Filter</button>
+    </div>
+
+    <canvas class="photo"></canvas> <!-- snapshot of video gets put on the canvas -->
+    <video class="player"></video> <!-- video from the webcam -->
+    <div class="strip"></div> <!-- snapshot images -->
+  </div>
+
+  <audio class="snap" src="http://wesbos.com/demos/photobooth/snap.mp3" hidden></audio>
+
+  <script src="scripts.js"></script>
+
+</body>
+</html>
